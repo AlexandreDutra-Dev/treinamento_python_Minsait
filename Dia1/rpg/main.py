@@ -67,9 +67,9 @@ def batalha(personagem, monstro):
 
 
 # Instanciando os personagens e monstros com valores aleatórios
-humano = Personagem('João', random.randint(10, 20), random.randint(1, 5))
-lobo = Lobo(random.randint(5, 15), random.randint(1, 4))
-goblin = Goblin(random.randint(1, 5), random.randint(
+humano = Personagem('João', random.randint(10, 20), random.randint(1, 10))
+lobo = Lobo(random.randint(10, 20), random.randint(1, 10))
+goblin = Goblin(random.randint(10, 20), random.randint(
     1, 10))
 
 # Criando uma lista com os personagens e monstros
