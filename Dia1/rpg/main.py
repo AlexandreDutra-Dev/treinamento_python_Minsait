@@ -1,3 +1,8 @@
+""" Esse arquivo é o arquivo principal do jogo RPG que será executado no terminal.
+Ele importa as classes Personagem, Lobo e Goblin do arquivo personagem.py e lobo.py e goblin.py, respectivamente.
+Ele atribui valores aleatórios para os atributos dos personagens e monstros
+e chama a função batalha com dois personagens e/ou monstros diferentes da  lista de personagens e monstros."""
+
 import random
 from personagem import Personagem
 from lobo import Lobo
