@@ -24,8 +24,8 @@ def batalha(personagem, monstro):
         print(f'{nome_personagem} está batalhando contra o {nome_monstro}!')
 
     # Mostra a quantidade de pontos de vida dos dois
-    print(f'{nome_monstro} tem {monstro.pontos_vida} pontos de vida.')
-    print(f'{nome_personagem} tem {personagem.pontos_vida} pontos de vida.\n')
+    print(f'{nome_monstro} tem {monstro.pontos_vida} ponto(s) de vida.')
+    print(f'{nome_personagem} tem {personagem.pontos_vida} ponto(s) de vida.\n')
 
     # Enquanto os dois tiverem pontos de vida, a batalha continua
     while personagem.pontos_vida > 0 and monstro.pontos_vida > 0:
@@ -45,7 +45,7 @@ def batalha(personagem, monstro):
             print('')
 
             print(
-                f'Fim da batalha:\n---------------\n{nome_vencedor} venceu a batalha com {pontos_vida_vencedor} pontos de vida restantes!')
+                f'Fim da batalha:\n---------------\n{nome_vencedor} venceu a batalha com {pontos_vida_vencedor} ponto(s) de vida restantes!')
             print(f'{nome_perdedor} foi derrotado.')
             break
 
