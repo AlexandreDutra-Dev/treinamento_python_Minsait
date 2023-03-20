@@ -1,6 +1,7 @@
 import random
 from personagem import Personagem
-from monstro import Lobo, Goblin
+from lobo import Lobo
+from goblin import Goblin
 
 # Função para iniciar a batalha entre um personagem e um monstro
 def batalha(personagem, monstro):
