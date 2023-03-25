@@ -2,38 +2,40 @@ from Conta import Conta
 from ContaCorrente import ContaCorrente
 from ContaPoupanca import ContaPoupanca
 
-# Criando uma conta comum
-conta1 = Conta(1, 1000)
-print(f'Conta {conta1.get_id_conta()}: Saldo = {conta1.get_saldo()}')
+# Teste 1: saque acima do saldo + limite em conta corrente
+conta_corrente = ContaCorrente(1, 1000, 500)
+print(f"Saldo inicial: {conta_corrente.get_saldo()}")
 
-# Sacando dinheiro da conta comum
-conta1.sacar(500)
-print(f'Conta {conta1.get_id_conta()}: Saldo = {conta1.get_saldo()}')
+conta_corrente.sacar(1500)
 
-# Depositando dinheiro na conta comum
-conta1.depositar(1000)
+print(f"Saldo final: {conta_corrente.get_saldo()}")
 
-# Criando uma conta corrente
-conta2 = ContaCorrente(2, 500, 1000)
-print(f'Conta {conta2.get_id_conta()}: Saldo = {conta2.get_saldo()}, Limite = {conta2.get_limite()}')
+# Teste 2: saque, depósito e verificação de rendimento em conta poupança
+conta_poupanca = ContaPoupanca(2, 5000, 2)
+print(
+    f"Saldo inicial: {conta_poupanca.get_saldo()}, rendimento anual: {conta_poupanca.verificar_rendimento_ao_ano()}")
 
-# Sacando dinheiro da conta corrente com limite
-conta2.sacar(1000)
-print(f'Conta {conta2.get_id_conta()}: Saldo = {conta2.get_saldo()}, Limite = {conta2.get_limite()}')
+conta_poupanca.sacar(2000)
+print(
+    f"Saldo após saque: {conta_poupanca.get_saldo()}, rendimento anual: {conta_poupanca.verificar_rendimento_ao_ano()}")
 
-# Tentando sacar um valor maior do que o limite
-conta2.sacar(1500)
-print(f'Conta {conta2.get_id_conta()}: Saldo = {conta2.get_saldo()}, Limite = {conta2.get_limite()}')
+conta_poupanca.depositar(1000)
+print(
+    f"Saldo após depósito: {conta_poupanca.get_saldo()}, rendimento anual: {conta_poupanca.verificar_rendimento_ao_ano()}")
 
-# Criando uma conta poupança
-conta3 = ContaPoupanca(3, 10000, 2.5)
-if isinstance(conta3, ContaPoupanca):
-    print(f'Conta {conta3.get_id_conta()}: Saldo = {conta3.get_saldo()}, Taxa de rendimento = {conta3.verificar_rendimento_ao_ano()}')
-else:
-    print(
-        f'Conta {conta3.get_id_conta()}: Saldo = {conta3.get_saldo()}, Limite = {conta3.get_limite()}')
+# Teste 3: depósito em conta comum
+conta_comum = Conta(3, 2000)
+print(f"Saldo inicial: {conta_comum.get_saldo()}")
 
+conta_comum.depositar(500)
+print(f"Saldo após depósito: {conta_comum.get_saldo()}")
 
-# Verificando o rendimento anual da conta poupança
-rendimento = conta3.verificar_rendimento_ao_ano()
-print(f'Rendimento anual da conta {conta3.get_id_conta()}: {rendimento:.2f}')
+# Teste 4: saque em conta comum
+conta_comum.sacar(1000)
+print(f"Saldo após saque: {conta_comum.get_saldo()}")
+
+# Teste 5: saque em conta poupança com saldo insuficiente
+conta_poupanca.sacar(6000)
+
+# Teste 6: saque em conta corrente com saldo insuficiente
+conta_corrente.sacar(2000)

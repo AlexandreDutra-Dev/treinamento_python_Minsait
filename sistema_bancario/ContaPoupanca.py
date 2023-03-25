@@ -6,12 +6,16 @@ class ContaPoupanca(Conta):
         super().__init__(id_conta, saldo)
         self.__taxa_de_rendimento = taxa_de_rendimento
 
-    def depositar(self, valor):
-        valor_rendimento = valor * self.__taxa_de_rendimento
-        valor_total = valor + valor_rendimento
-        super().depositar(valor_total)
-        print(
-            f'Depósito de R$ {valor:.2f} realizado com sucesso na conta {self.get_id_conta()} (rendimento de R$ {valor_rendimento:.2f})')
+    def sacar(self, valor):
+        try:
+            if self.get_saldo() >= valor:
+                self.set_saldo(self.get_saldo() - valor)
+                print(
+                    f"Saque realizado com sucesso. Novo saldo: {self.get_saldo()}")
+            else:
+                raise ValueError("Saldo insuficiente para realizar o saque.")
+        except ValueError as e:
+            print(e)
 
     def verificar_rendimento_ao_ano(self):
-        return self.get_saldo() * self.__taxa_de_rendimento
+        return self.get_saldo() * self.__taxa_de_rendimento / 100
