@@ -3,7 +3,7 @@
 # S - Single Responsability Principle
 
 from typing import List
-from Dia2.Produto import Produto
+from Produto import Produto
 
 
 class Pedido:

@@ -1,5 +1,5 @@
-from Dia2.Produto import Produto
-from Dia2.Pedidos import Pedido, PedidoViewer
+from Produto import Produto
+from Pedidos import Pedido, PedidoViewer
 
 
 banana = Produto(nome="Banana", preco=2.5, id=1)
