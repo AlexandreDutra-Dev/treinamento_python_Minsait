@@ -1,78 +1,177 @@
-from Conta import Conta
 from ContaCorrente import ContaCorrente
 from ContaPoupanca import ContaPoupanca
+
 
 # Criar uma conta corrente com um saldo de R$1000,00 e um limite de R$500,00
 conta_corrente = ContaCorrente(id_conta=1, saldo=1000, limite=500)
 
-# Criar uma conta poupança com um saldo de R$5000,00 e uma taxa de rendimento de 2%
+# Criar uma conta poupança com um saldo de R$5000,00 e uma taxa de rendimento de 2% ao mês
 conta_poupanca = ContaPoupanca(id_conta=2, saldo=5000, taxa_de_rendimento=2)
 
 
-# Loop para transações
-while True:
-    print("\nSelecione uma opção:")
-    print("1 - Realizar saque em conta corrente")
-    print("2 - Realizar depósito em conta corrente")
-    print("3 - Realizar saque em conta poupança")
-    print("4 - Realizar depósito em conta poupança")
-    print("5 - Realizar depósito em conta comum")
-    print("6 - Consulta de saldo:")
-    print("7 - Sair")
+def selecionar_conta() -> None:
+    """
+    Função que permite selecionar uma conta (corrente ou poupança) e executar suas respectivas operações.
+    """
+    opcoes_conta = ["1", "2", "3"]
+    opcao_conta = ""
 
-    opcao = input("Digite a opção selecionada: ")
+    while opcao_conta != "3":
+        print("\nSelecione uma opção de conta:")
+        print("1 - Conta Corrente")
+        print("2 - Conta Poupança")
+        print("3 - Sair")
 
-    if opcao == "1":
-        # Realizar saque em conta corrente
-        valor = float(input("Digite o valor do saque: "))
-        try:
-            conta_corrente.sacar(valor)
-            print(
-                f"Saque realizado com sucesso. Saldo atual: {conta_corrente.get_saldo()}")
-        except ValueError as e:
-            print(f"Erro ao realizar saque: {str(e)}")
+        opcao_conta = input("Digite a opção selecionada: ")
 
-    elif opcao == "2":
-        # Realizar depósito em conta corrente
-        valor = float(input("Digite o valor do depósito: "))
-        conta_corrente.depositar(valor)
-        print(
-            f"Depósito realizado com sucesso. Saldo atual: {conta_corrente.get_saldo()}")
-
-    elif opcao == "3":
-        # Realizar saque em conta poupança
-        valor = float(input("Digite o valor do saque: "))
-        try:
-            conta_poupanca.sacar(valor)
-            print(
-                f"Saque realizado com sucesso. Saldo atual: {conta_poupanca.get_saldo()}")
-        except ValueError as e:
-            print(f"Erro ao realizar saque: {str(e)}")
-
-    elif opcao == "4":
-        # Realizar depósito em conta poupança
-        valor = float(input("Digite o valor do depósito: "))
-        conta_poupanca.depositar(valor)
-        print(
-            f"Depósito realizado com sucesso. Saldo atual: {conta_poupanca.get_saldo()}")
-
-    elif opcao == "5":
-       # Consulta de saldo
-        print("Selecione uma opção:")
-        print("1 - Consultar saldo da conta corrente")
-        print("2 - Consultar saldo da conta poupança")
-        print("3 - Consultar saldo da conta comum")
-
-        opcao = input("Digite a opção selecionada: ")
-
-        if opcao == "1":
-            print(f"Saldo da conta corrente: {conta_corrente.get_saldo()}")
-        elif opcao == "2":
-            print(f"Saldo da conta poupança: {conta_poupanca.get_saldo()}")
-        else:
+        if opcao_conta not in opcoes_conta:
             print("Opção inválida.")
+            continue
 
-    elif opcao == "6":
-        # Sair
-        print("Saindo do sistema...")
-        break
+        if opcao_conta == "1":
+            selecionar_opcao_conta_corrente()
+        elif opcao_conta == "2":
+            selecionar_opcao_conta_poupanca()
+        else:
+            break
+
+
+def selecionar_opcao_conta_corrente() -> None:
+    """
+    Função que permite selecionar uma operação a ser realizada na conta corrente.
+    """
+    opcao_cc = ["1", "2", "3", "4"]
+    opcao_cc = ""
+
+    while opcao_cc != "4":
+        print("\nConta Corrente selecionada")
+        print("Selecione uma opção:")
+        print("1 - Consultar saldo de conta corrente")
+        print("2 - Realizar saque em conta corrente")
+        print("3 - Realizar depósito em conta corrente")
+        print("4 - Voltar")
+
+        opcao_cc = input("Digite a opção selecionada: ")
+
+        if opcao_cc not in opcao_cc:
+            print("Opção inválida.")
+            continue
+
+        if opcao_cc == "1":
+            consultar_saldo_conta_corrente()
+        elif opcao_cc == "2":
+            realizar_saque_conta_corrente()
+        elif opcao_cc == "3":
+            realizar_deposito_conta_corrente()
+        else:
+            break
+
+
+def consultar_saldo_conta_corrente() -> None:
+    """
+    Função que imprime o saldo da conta corrente e o limite disponível.
+    """
+    print("\nSaldo atual: R${:.2f}".format(conta_corrente.get_saldo()))
+    print("Limite disponível: R${:.2f}".format(conta_corrente.get_limite()))
+    print("Saldo total: R${:.2f}".format(
+        conta_corrente.get_saldo() + conta_corrente.get_limite()))
+
+
+def realizar_saque_conta_corrente() -> None:
+    """
+    Função que realiza um saque na conta corrente.
+    """
+    valor_saque = float(input("Digite o valor do saque: R$").replace(",", "."))
+    conta_corrente.sacar(valor=valor_saque)
+
+
+def realizar_deposito_conta_corrente() -> None:
+    """
+    Função que realiza um depósito na conta corrente.
+    """
+    valor_deposito = float(
+        input("Digite o valor do depósito: R$").replace(",", "."))
+    conta_corrente.depositar(valor=valor_deposito)
+
+
+def selecionar_opcao_conta_poupanca() -> None:
+    """
+    Função que permite selecionar uma operação a ser realizada na conta poupança.
+    """
+    opcoes_cp = ["1", "2", "3", "4", "5"]
+
+    while True:
+        print("\nConta Poupança selecionada")
+        print("Selecione uma opção:")
+        print("1 - Consultar saldo de conta poupança")
+        print("2 - Realizar saque em conta poupança")
+        print("3 - Realizar depósito em conta poupança")
+        print("4 - Verificar rendimento da conta poupança")
+        print("5 - Voltar")
+
+        opcao_cp = input("Digite a opção selecionada: ")
+
+        if opcao_cp not in opcoes_cp:
+            print("Opção inválida.")
+            continue
+
+        if opcao_cp == "1":
+            consultar_saldo_conta_poupanca()
+        elif opcao_cp == "2":
+            realizar_saque_conta_poupanca()
+        elif opcao_cp == "3":
+            realizar_deposito_conta_poupanca()
+        elif opcao_cp == "4":
+            verificar_rendimento_conta_poupanca()
+        else:
+            break
+
+
+def consultar_saldo_conta_poupanca() -> None:
+    """
+    Função que imprime o saldo da conta poupança.
+    """
+    print("\nSaldo atual: R${:.2f}".format(conta_poupanca.get_saldo()))
+
+
+def realizar_saque_conta_poupanca() -> None:
+    """
+    Função que realiza um saque na conta poupança.
+    """
+    valor_saque = float(input("Digite o valor do saque: R$").replace(",", "."))
+    conta_poupanca.sacar(valor=valor_saque)
+
+
+def realizar_deposito_conta_poupanca() -> None:
+    """
+    Função que realiza um depósito na conta poupança.
+    """
+    valor_deposito = float(
+        input("Digite o valor do depósito: R$").replace(",", "."))
+
+    conta_poupanca.depositar(valor=valor_deposito)
+
+
+def verificar_rendimento_conta_poupanca() -> None:
+    """
+    Função que imprime o rendimento da conta poupança.
+    """
+    print("\nRendimento anual: R${:.2f}".format(
+        conta_poupanca.get_rendimento_anual()))
+
+    print("\nRendimento por período:")
+    print("Por segundos: R${:.2f}".format(
+        conta_poupanca.get_rendimento_por_periodo('segundos')))
+    print("Por minutos: R${:.2f}".format(
+        conta_poupanca.get_rendimento_por_periodo('minutos')))
+    print("Por horas: R${:.2f}".format(
+        conta_poupanca.get_rendimento_por_periodo('horas')))
+    print("Por dias: R${:.2f}".format(
+        conta_poupanca.get_rendimento_por_periodo('dias')))
+    print("Por meses: R${:.2f}".format(
+        conta_poupanca.get_rendimento_por_periodo('meses')))
+    print("Por anos: R${:.2f}".format(
+        conta_poupanca.get_rendimento_por_periodo('anos')))
+
+
+selecionar_conta()
