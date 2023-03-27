@@ -1,4 +1,5 @@
 from Conta_Poupanca import ContaPoupanca
+from menu_valor_simulacao_rendimento import selecionar_opcao_simulacao_rendimento
 
 # Cria uma conta poupança com saldo 5000 e taxa de rendimento 15%
 conta_poupanca = ContaPoupanca(id_conta=2, saldo=5000, taxa_de_rendimento=15)
@@ -57,6 +58,9 @@ def realizar_deposito_conta_poupanca() -> None:
 
 def verificar_rendimento_conta_poupanca() -> None:
 
+    # mostrar o saldo atual da conta poupança
+    print("\nSaldo atual: R${:.2f}".format(conta_poupanca.get_saldo()))
+
     print("\nRendimento por período:")
     print("Por segundos: R${:.2f}".format(
         conta_poupanca.get_rendimento_por_periodo('segundos')))
@@ -70,3 +74,7 @@ def verificar_rendimento_conta_poupanca() -> None:
         conta_poupanca.get_rendimento_por_periodo('meses')))
     print("Por anos: R${:.2f}".format(
         conta_poupanca.get_rendimento_por_periodo('anos')))
+
+    selecionar_opcao_simulacao_rendimento()
+
+    # mostrar o saldo atual da conta poupança

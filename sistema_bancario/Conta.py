@@ -3,20 +3,18 @@ class Conta:
         self._id_conta = id_conta
         self._saldo = saldo
 
-    def get_id_conta(self) -> int:
+    @property
+    def id_conta(self) -> int:
         return self._id_conta
 
-    def set_id_conta(self, id_conta: int) -> None:
+    @id_conta.setter
+    def id_conta(self, id_conta: int) -> None:
         self._id_conta = id_conta
 
-    def get_saldo(self) -> float:
+    @property
+    def saldo(self) -> float:
         return self._saldo
 
-    def set_saldo(self, saldo: float):
+    @saldo.setter
+    def saldo(self, saldo: float):
         self._saldo = saldo
-
-    def sacar():
-        pass
-
-    def depositar():
-        pass
