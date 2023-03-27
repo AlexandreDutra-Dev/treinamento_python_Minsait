@@ -1,6 +1,6 @@
 from ContaPoupanca import ContaPoupanca
 
-conta_poupanca = ContaPoupanca(id_conta=2, saldo=5000, taxa_de_rendimento=2)
+conta_poupanca = ContaPoupanca(id_conta=2, saldo=5000, taxa_de_rendimento=15)
 
 
 def selecionar_opcao_conta_poupanca() -> None:
@@ -37,7 +37,7 @@ def selecionar_opcao_conta_poupanca() -> None:
 
 def consultar_saldo_conta_poupanca() -> None:
 
-    print("\nSaldo atual: R${:.2f}".format(conta_poupanca.saldo))
+    print("\nSaldo atual: R${:.2f}".format(conta_poupanca.get_saldo()))
 
 
 def realizar_saque_conta_poupanca() -> None:
@@ -68,4 +68,4 @@ def verificar_rendimento_conta_poupanca() -> None:
     print("Por meses: R${:.2f}".format(
         conta_poupanca.get_rendimento_por_periodo('meses')))
     print("Por anos: R${:.2f}".format(
-        conta_poupanca.get_rendimento_por_periodo('ano')))
+        conta_poupanca.get_rendimento_por_periodo('anos')))

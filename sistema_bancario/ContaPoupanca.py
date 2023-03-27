@@ -11,12 +11,20 @@ class ContaPoupanca(Conta):
         self.__taxa_de_rendimento = taxa_de_rendimento
 
     def sacar(self, valor: float):
-        try:
-            self.set_saldo(self.get_saldo() - valor)
-            print("Saque realizado com sucesso. Novo saldo: R${:.2f}".format(
-                self.get_saldo()))
-        except ValueError as e:
-            print(e)
+      if valor > self.get_saldo():
+          print("Saldo insuficiente para realizar o saque")
+      else:
+          try:
+              self.set_saldo(self.get_saldo() - valor)
+              print("Saque realizado com sucesso. Novo saldo: R${:.2f}".format(
+                  self.get_saldo()))
+          except ValueError as e:
+              print(e)
+
+    def depositar(self, valor: float):
+        self.set_saldo(self.get_saldo() + valor)
+        print("Depósito realizado com sucesso. Novo saldo: R${:.2f}".format(
+            self.get_saldo()))
 
     def get_rendimento_por_periodo(self, periodo: str):
         fatores_conversao = {
