@@ -1,5 +1,5 @@
 """
-Esse arquivo é responsável por inserir os valores de forma automática, caso queira inserir manualmente, utilizar o arquivo inserção_manual_de_valores.py
+Esse arquivo é responsável por inserir os valores de forma automática, caso queira inserir manualmente, utilizar o arquivo insercao_manual.py
 Se deseja uma saida mais limpa dos resultados, basta acessar o arquivo resultados_testes.csv que será gerado na pasta sistema_bancario
 
 """
