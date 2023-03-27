@@ -1,13 +1,11 @@
-from ContaCorrente import ContaCorrente
+from Conta_Corrente import ContaCorrente
 
-# Criar uma conta corrente com um saldo de R$1000,00 e um limite de R$500,00
+# Cria uma conta corrente com um saldo de R$1000,00 e um limite de R$500,00
 conta_corrente = ContaCorrente(id_conta=1, saldo=1000, limite=500)
 
 
 def selecionar_opcao_conta_corrente() -> None:
-    """
-    Função que permite selecionar uma operação a ser realizada na conta corrente.
-    """
+
     opcoes_conta_corrente = ["1", "2", "3", "4"]
     opcao_conta_corrente = ""
 
@@ -36,9 +34,7 @@ def selecionar_opcao_conta_corrente() -> None:
 
 
 def consultar_saldo_conta_corrente() -> None:
-    """
-    Função que imprime o saldo da conta corrente e o limite disponível.
-    """
+
     print("\nSaldo atual: R${:.2f}".format(conta_corrente.get_saldo()))
     print("Limite disponível: R${:.2f}".format(conta_corrente.get_limite()))
     print("Saldo total: R${:.2f}".format(
@@ -54,9 +50,7 @@ def realizar_saque_conta_corrente() -> None:
 
 
 def realizar_deposito_conta_corrente() -> None:
-    """
-    Função que realiza um depósito na conta corrente.
-    """
+
     valor_deposito = float(
         input("Digite o valor do depósito: R$").replace(",", "."))
     conta_corrente.depositar(valor=valor_deposito)

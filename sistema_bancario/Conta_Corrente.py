@@ -43,11 +43,13 @@ class ContaCorrente(Conta):
                 self.set_saldo(self.get_saldo() + valor - valor_compensar)
                 print(
                     f"Depósito realizado com sucesso.Novo saldo: R${self.get_saldo():.2f}")
-                print(f"Limite compensado:R${self.__limite:.2f}")
+                if valor_compensar > 0:
+                  print(f"Limite compensado:R${self.__limite:.2f}")
         else:
             self.set_saldo(self.get_saldo() + valor)
             print(
                 f"Depósito realizado com sucesso. Novo saldo: R${self.get_saldo():.2f}")
             print(f"Limite disponível: R${self.__limite:.2f}")
+
     def get_limite(self) -> float:
         return self.__limite

@@ -1,5 +1,6 @@
-from ContaPoupanca import ContaPoupanca
+from Conta_Poupanca import ContaPoupanca
 
+# Cria uma conta poupança com saldo 5000 e taxa de rendimento 15%
 conta_poupanca = ContaPoupanca(id_conta=2, saldo=5000, taxa_de_rendimento=15)
 
 
