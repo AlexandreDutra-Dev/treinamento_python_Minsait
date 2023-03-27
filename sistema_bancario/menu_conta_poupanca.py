@@ -76,5 +76,3 @@ def verificar_rendimento_conta_poupanca() -> None:
         conta_poupanca.get_rendimento_por_periodo('anos')))
 
     selecionar_opcao_simulacao_rendimento()
-
-    # mostrar o saldo atual da conta poupança

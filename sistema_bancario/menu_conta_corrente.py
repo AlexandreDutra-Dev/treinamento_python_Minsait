@@ -42,9 +42,7 @@ def consultar_saldo_conta_corrente() -> None:
 
 
 def realizar_saque_conta_corrente() -> None:
-    """
-    Função que realiza um saque na conta corrente.
-    """
+
     valor_saque = float(input("Digite o valor do saque: R$").replace(",", "."))
     conta_corrente.sacar(valor=valor_saque)
 
