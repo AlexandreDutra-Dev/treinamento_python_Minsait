@@ -43,17 +43,23 @@ def consultar_saldo_conta_poupanca() -> None:
 
 
 def realizar_saque_conta_poupanca() -> None:
-
-    valor_saque = float(input("Digite o valor do saque: R$").replace(",", "."))
-    conta_poupanca.sacar(valor=valor_saque)
+    while True:
+        valor_saque = input("Digite o valor do saque: R$")
+        if valor_saque.isnumeric():
+            conta_poupanca.sacar(valor=float(valor_saque))
+            break
+        else:
+            print("Valor inválido. Digite apenas números.\n")
 
 
 def realizar_deposito_conta_poupanca() -> None:
-
-    valor_deposito = float(
-        input("Digite o valor do depósito: R$").replace(",", "."))
-
-    conta_poupanca.depositar(valor=valor_deposito)
+    while True:
+        valor_deposito = input("Digite o valor do depósito: R$")
+        if valor_deposito.isnumeric():
+            conta_poupanca.depositar(valor=float(valor_deposito))
+            break
+        else:
+            print("Valor inválido. Digite apenas números.\n")
 
 
 def verificar_rendimento_conta_poupanca() -> None:
