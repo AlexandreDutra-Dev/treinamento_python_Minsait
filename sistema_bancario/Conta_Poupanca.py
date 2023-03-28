@@ -25,8 +25,10 @@ class ContaPoupanca(Conta):
         else:
             try:
                 self._saldo -= valor
-                print("Saque realizado com sucesso. Novo saldo: R${:.2f}".format(
+                print("Saque realizado com sucesso")
+                print("Saldo disponível para saque: R${:.2f}".format(
                     self._saldo))
+
             except ValueError as e:
                 print(e)
 

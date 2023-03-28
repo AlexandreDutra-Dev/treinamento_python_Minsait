@@ -12,21 +12,23 @@ def consultar_saldo_conta_corrente() -> None:
 
 
 def realizar_saque_conta_corrente() -> None:
-    while True:
+    continuar_loop = True
+    while continuar_loop:
         valor_saque = input("Digite o valor do saque: R$")
         if valor_saque.isnumeric():
             conta_corrente.sacar(valor=float(valor_saque))
-            break
+            continuar_loop = False
         else:
             print("Valor inválido. Digite apenas números.\n")
 
 
 def realizar_deposito_conta_corrente() -> None:
-    while True:
+    continuar_loop = True
+    while continuar_loop:
         valor_deposito = input("Digite o valor do depósito: R$")
         if valor_deposito.isnumeric():
             conta_corrente.depositar(valor=float(valor_deposito))
-            break
+            continuar_loop = False
         else:
             print("Valor inválido. Digite apenas números.\n")
 
