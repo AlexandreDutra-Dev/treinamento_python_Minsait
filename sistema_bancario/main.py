@@ -28,7 +28,8 @@ conta_poupanca.sacar(4000)
 conta_poupanca.sacar(0)
 conta_poupanca.sacar(-500)
 
-# mostar o rendimento da conta poupança
+print("--------------------------------------------.\n")
+
 print("Teste de rendimento da conta poupança.\n")
 conta_poupanca = ContaPoupanca(id_conta=2, saldo=5000, taxa_de_rendimento=12)
 conta_poupanca.verificar_rendimento_por_segundo()
