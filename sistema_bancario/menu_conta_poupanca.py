@@ -5,38 +5,6 @@ from menu_valor_simulacao_rendimento import selecionar_opcao_simulacao_rendiment
 conta_poupanca = ContaPoupanca(id_conta=2, saldo=5000, taxa_de_rendimento=15)
 
 
-def selecionar_opcao_conta_poupanca() -> None:
-
-    opcoes_conta_poupanca = ["1", "2", "3", "4", "5"]
-    opcao_conta_poupanca = ""
-
-    while opcao_conta_poupanca != "5":
-        print("\nConta Poupança selecionada")
-        print("Selecione uma opção:")
-        print("1 - Consultar saldo de conta poupança")
-        print("2 - Realizar saque em conta poupança")
-        print("3 - Realizar depósito em conta poupança")
-        print("4 - Verificar rendimento da conta poupança")
-        print("5 - Voltar")
-
-        opcao_conta_poupanca = input("Digite a opção selecionada: ")
-
-        if opcao_conta_poupanca not in opcoes_conta_poupanca:
-            print("Opção inválida.")
-            continue
-
-        if opcao_conta_poupanca == "1":
-            consultar_saldo_conta_poupanca()
-        elif opcao_conta_poupanca == "2":
-            realizar_saque_conta_poupanca()
-        elif opcao_conta_poupanca == "3":
-            realizar_deposito_conta_poupanca()
-        elif opcao_conta_poupanca == "4":
-            verificar_rendimento_conta_poupanca()
-        else:
-            break
-
-
 def consultar_saldo_conta_poupanca() -> None:
 
     print("\nSaldo atual: R${:.2f}".format(conta_poupanca._saldo))
@@ -83,3 +51,35 @@ def verificar_rendimento_conta_poupanca() -> None:
     print("Rendimento por ano: R${:.2f}".format(rendimento_por_ano))
 
     selecionar_opcao_simulacao_rendimento()
+
+
+def selecionar_opcao_conta_poupanca() -> None:
+
+    opcoes_conta_poupanca = ["1", "2", "3", "4", "5"]
+    opcao_conta_poupanca = ""
+
+    while opcao_conta_poupanca != "5":
+        print("\nConta Poupança selecionada")
+        print("Selecione uma opção:")
+        print("1 - Consultar saldo de conta poupança")
+        print("2 - Realizar saque em conta poupança")
+        print("3 - Realizar depósito em conta poupança")
+        print("4 - Verificar rendimento da conta poupança")
+        print("5 - Voltar")
+
+        opcao_conta_poupanca = input("Digite a opção selecionada: ")
+
+        if opcao_conta_poupanca not in opcoes_conta_poupanca:
+            print("Opção inválida.")
+            continue
+
+        if opcao_conta_poupanca == "1":
+            consultar_saldo_conta_poupanca()
+        elif opcao_conta_poupanca == "2":
+            realizar_saque_conta_poupanca()
+        elif opcao_conta_poupanca == "3":
+            realizar_deposito_conta_poupanca()
+        elif opcao_conta_poupanca == "4":
+            verificar_rendimento_conta_poupanca()
+        else:
+            break

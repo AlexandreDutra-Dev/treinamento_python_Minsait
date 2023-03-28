@@ -4,6 +4,33 @@ from Conta_Corrente import ContaCorrente
 conta_corrente = ContaCorrente(id_conta=1, saldo=1000, limite=500)
 
 
+def consultar_saldo_conta_corrente() -> None:
+
+    print("\nSaldo atual: R${:.2f}".format(conta_corrente._saldo))
+    print("Saldo total: R${:.2f}".format(
+        conta_corrente._saldo + conta_corrente.limite))
+
+
+def realizar_saque_conta_corrente() -> None:
+    while True:
+        valor_saque = input("Digite o valor do saque: R$")
+        if valor_saque.isnumeric():
+            conta_corrente.sacar(valor=float(valor_saque))
+            break
+        else:
+            print("Valor inválido. Digite apenas números.\n")
+
+
+def realizar_deposito_conta_corrente() -> None:
+    while True:
+        valor_deposito = input("Digite o valor do depósito: R$")
+        if valor_deposito.isnumeric():
+            conta_corrente.depositar(valor=float(valor_deposito))
+            break
+        else:
+            print("Valor inválido. Digite apenas números.\n")
+
+
 def selecionar_opcao_conta_corrente() -> None:
 
     opcoes_conta_corrente = ["1", "2", "3", "4"]
@@ -31,30 +58,3 @@ def selecionar_opcao_conta_corrente() -> None:
             realizar_deposito_conta_corrente()
         else:
             break
-
-
-def consultar_saldo_conta_corrente() -> None:
-
-    print("\nSaldo atual: R${:.2f}".format(conta_corrente._saldo))
-    print("Saldo total: R${:.2f}".format(
-        conta_corrente._saldo + conta_corrente.limite))
-
-
-def realizar_saque_conta_corrente() -> None:
-    while True:
-        valor_saque = input("Digite o valor do saque: R$")
-        if valor_saque.isnumeric():
-            conta_corrente.sacar(valor=float(valor_saque))
-            break
-        else:
-            print("Valor inválido. Digite apenas números.\n")
-
-
-def realizar_deposito_conta_corrente() -> None:
-    while True:
-        valor_deposito = input("Digite o valor do depósito: R$")
-        if valor_deposito.isnumeric():
-            conta_corrente.depositar(valor=float(valor_deposito))
-            break
-        else:
-            print("Valor inválido. Digite apenas números.\n")
