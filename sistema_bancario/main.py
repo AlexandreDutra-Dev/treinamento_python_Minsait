@@ -66,25 +66,25 @@ conta_poupanca = ContaPoupanca(
     id_conta=2, saldo=10000, taxa_de_rendimento=2)
 
 print("Saldo da conta poupança: R${:.2f}".format(conta_poupanca.saldo))
-rendimento_por_segundo = conta_poupanca.calcular_rendimento_por_segundo()
-rendimento_por_minuto = conta_poupanca.calcular_rendimento_por_minuto()
-rendimento_por_hora = conta_poupanca.calcular_rendimento_por_hora()
-rendimento_por_dia = conta_poupanca.calcular_rendimento_por_dia()
-rendimento_por_mes = conta_poupanca.calcular_rendimento_por_mes()
-rendimento_por_ano = conta_poupanca.calcular_rendimento_por_ano()
 
-print("Rendimento por segundo: R${:.2f}".format(rendimento_por_segundo))
-print("Rendimento por minuto: R${:.2f}".format(rendimento_por_minuto))
-print("Rendimento por hora: R${:.2f}".format(rendimento_por_hora))
-print("Rendimento por dia: R${:.2f}".format(rendimento_por_dia))
-print("Rendimento por mês: R${:.2f}".format(rendimento_por_mes))
-print("Rendimento por ano: R${:.2f}".format(rendimento_por_ano))
+print("Rendimento por segundo: R${:.2f}".format(
+    conta_poupanca.calcular_rendimento_por_segundo()))
+print("Rendimento por minuto: R${:.2f}".format(
+    conta_poupanca.calcular_rendimento_por_minuto()))
+print("Rendimento por hora: R${:.2f}".format(
+    conta_poupanca.calcular_rendimento_por_hora()))
+print("Rendimento por dia: R${:.2f}".format(
+    conta_poupanca.calcular_rendimento_por_dia()))
+print("Rendimento por mês: R${:.2f}".format(
+    conta_poupanca.calcular_rendimento_por_mes()))
+print("Rendimento por ano: R${:.2f}".format(
+    conta_poupanca.calcular_rendimento_por_ano()))
 resultado_6 = f"Saldo da conta poupança: R${conta_poupanca.saldo :.2f}\n" \
-              f"Rendimento por segundo: R${rendimento_por_segundo:.2f}\n" \
-              f"Rendimento por minuto: R${rendimento_por_minuto:.2f}\n" \
-              f"Rendimento por hora: R${rendimento_por_hora:.2f}\n" \
-              f"Rendimento por mês: R${rendimento_por_mes:.2f}\n" \
-              f"Rendimento por ano: R${rendimento_por_ano:.2f}\n"
+              f"Rendimento por segundo: R${conta_poupanca.calcular_rendimento_por_segundo():.2f}\n" \
+              f"Rendimento por minuto: R${conta_poupanca.calcular_rendimento_por_minuto():.2f}\n" \
+              f"Rendimento por hora: R${conta_poupanca.calcular_rendimento_por_hora():.2f}\n" \
+              f"Rendimento por mês: R${conta_poupanca.calcular_rendimento_por_mes():.2f}\n" \
+              f"Rendimento por ano: R${conta_poupanca.calcular_rendimento_por_ano():.2f}\n"
 
 
 # Teste 7: fazer um saque e verificar o saldo na conta poupança

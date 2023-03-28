@@ -35,20 +35,38 @@ class ContaPoupanca(Conta):
         print("Depósito realizado com sucesso. Novo saldo: R${:.2f}".format(
             self._saldo))
 
-    def calcular_rendimento_por_segundo(self) -> float:
-        return self._saldo * ((1 + self.__taxa_de_rendimento / 100) ** (1 / SEGUNDOS_EM_ANO) - 1)
+    def calcular_rendimento_por_segundo(self, valor_simulacao=None) -> float:
+        if valor_simulacao is not None:
+            return valor_simulacao * ((1 + self.__taxa_de_rendimento / 100) ** (1 / SEGUNDOS_EM_ANO) - 1)
+        else:
+            return self._saldo * ((1 + self.__taxa_de_rendimento / 100) ** (1 / SEGUNDOS_EM_ANO) - 1)
 
-    def calcular_rendimento_por_minuto(self) -> float:
-        return self._saldo * ((1 + self.__taxa_de_rendimento / 100) ** (1 / MINUTOS_EM_ANO) - 1)
+    def calcular_rendimento_por_minuto(self, valor_simulacao=None) -> float:
+        if valor_simulacao is not None:
+            return valor_simulacao * ((1 + self.__taxa_de_rendimento / 100) ** (1 / MINUTOS_EM_ANO) - 1)
+        else:
+            return self._saldo * ((1 + self.__taxa_de_rendimento / 100) ** (1 / MINUTOS_EM_ANO) - 1)
 
-    def calcular_rendimento_por_hora(self) -> float:
-        return self._saldo * ((1 + self.__taxa_de_rendimento / 100) ** (1 / HORAS_EM_ANO) - 1)
+    def calcular_rendimento_por_hora(self, valor_simulacao=None) -> float:
+        if valor_simulacao is not None:
+            return valor_simulacao * ((1 + self.__taxa_de_rendimento / 100) ** (1 / HORAS_EM_ANO) - 1)
+        else:
+            return self._saldo * ((1 + self.__taxa_de_rendimento / 100) ** (1 / HORAS_EM_ANO) - 1)
 
-    def calcular_rendimento_por_dia(self) -> float:
-        return self._saldo * ((1 + self.__taxa_de_rendimento / 100) ** (1 / DIAS_EM_ANO) - 1)
+    def calcular_rendimento_por_dia(self, valor_simulacao=None) -> float:
+        if valor_simulacao is not None:
+            return valor_simulacao * ((1 + self.__taxa_de_rendimento / 100) ** (1 / DIAS_EM_ANO) - 1)
+        else:
+            return self._saldo * ((1 + self.__taxa_de_rendimento / 100) ** (1 / DIAS_EM_ANO) - 1)
 
-    def calcular_rendimento_por_mes(self) -> float:
-        return self._saldo * self.__taxa_de_rendimento / 1200
+    def calcular_rendimento_por_mes(self, valor_simulacao=None) -> float:
+        if valor_simulacao is not None:
+            return valor_simulacao * self.__taxa_de_rendimento / 1200
+        else:
+            return self._saldo * self.__taxa_de_rendimento / 1200
 
-    def calcular_rendimento_por_ano(self) -> float:
-        return self._saldo * self.__taxa_de_rendimento / 100
+    def calcular_rendimento_por_ano(self, valor_simulacao=None) -> float:
+        if valor_simulacao is not None:
+            return valor_simulacao * self.__taxa_de_rendimento / 100
+        else:
+            return self._saldo * self.__taxa_de_rendimento / 100

@@ -25,16 +25,16 @@ def selecionar_opcao_simulacao_rendimento() -> None:
                 input("Digite o valor que deseja simular: R$").replace(",", "."))
             print("\nRendimento por período:")
             print("Por segundos: R${:.2f}".format(
-                conta_poupanca.get_rendimento_por_periodo('segundos', valor_simulacao)))
+                conta_poupanca.calcular_rendimento_por_segundo(valor_simulacao)))
             print("Por minutos: R${:.2f}".format(
-                conta_poupanca.get_rendimento_por_periodo('minutos', valor_simulacao)))
+                conta_poupanca.calcular_rendimento_por_minuto(valor_simulacao)))
             print("Por horas: R${:.2f}".format(
-                conta_poupanca.get_rendimento_por_periodo('horas', valor_simulacao)))
+                conta_poupanca.calcular_rendimento_por_hora(valor_simulacao)))
             print("Por dias: R${:.2f}".format(
-                conta_poupanca.get_rendimento_por_periodo('dias', valor_simulacao)))
+                conta_poupanca.calcular_rendimento_por_dia(valor_simulacao)))
             print("Por meses: R${:.2f}".format(
-                conta_poupanca.get_rendimento_por_periodo('meses', valor_simulacao)))
+                conta_poupanca.calcular_rendimento_por_mes(valor_simulacao)))
             print("Por anos: R${:.2f}".format(
-                conta_poupanca.get_rendimento_por_periodo('anos', valor_simulacao)))
+                conta_poupanca.calcular_rendimento_por_ano(valor_simulacao)))
         else:
             break

@@ -39,7 +39,7 @@ def selecionar_opcao_conta_poupanca() -> None:
 
 def consultar_saldo_conta_poupanca() -> None:
 
-    print("\nSaldo atual: R${:.2f}".format(conta_poupanca.get_saldo()))
+    print("\nSaldo atual: R${:.2f}".format(conta_poupanca._saldo))
 
 
 def realizar_saque_conta_poupanca() -> None:
@@ -59,20 +59,21 @@ def realizar_deposito_conta_poupanca() -> None:
 def verificar_rendimento_conta_poupanca() -> None:
 
     # mostrar o saldo atual da conta poupança
-    print("\nSaldo atual: R${:.2f}".format(conta_poupanca.get_saldo()))
+    print("\nSaldo atual: R${:.2f}".format(conta_poupanca._saldo))
 
     print("\nRendimento por período:")
-    print("Por segundos: R${:.2f}".format(
-        conta_poupanca.get_rendimento_por_periodo('segundos')))
-    print("Por minutos: R${:.2f}".format(
-        conta_poupanca.get_rendimento_por_periodo('minutos')))
-    print("Por horas: R${:.2f}".format(
-        conta_poupanca.get_rendimento_por_periodo('horas')))
-    print("Por dias: R${:.2f}".format(
-        conta_poupanca.get_rendimento_por_periodo('dias')))
-    print("Por meses: R${:.2f}".format(
-        conta_poupanca.get_rendimento_por_periodo('meses')))
-    print("Por anos: R${:.2f}".format(
-        conta_poupanca.get_rendimento_por_periodo('anos')))
+    rendimento_por_segundo = conta_poupanca.calcular_rendimento_por_segundo()
+    rendimento_por_minuto = conta_poupanca.calcular_rendimento_por_minuto()
+    rendimento_por_hora = conta_poupanca.calcular_rendimento_por_hora()
+    rendimento_por_dia = conta_poupanca.calcular_rendimento_por_dia()
+    rendimento_por_mes = conta_poupanca.calcular_rendimento_por_mes()
+    rendimento_por_ano = conta_poupanca.calcular_rendimento_por_ano()
+
+    print("Rendimento por segundo: R${:.2f}".format(rendimento_por_segundo))
+    print("Rendimento por minuto: R${:.2f}".format(rendimento_por_minuto))
+    print("Rendimento por hora: R${:.2f}".format(rendimento_por_hora))
+    print("Rendimento por dia: R${:.2f}".format(rendimento_por_dia))
+    print("Rendimento por mês: R${:.2f}".format(rendimento_por_mes))
+    print("Rendimento por ano: R${:.2f}".format(rendimento_por_ano))
 
     selecionar_opcao_simulacao_rendimento()

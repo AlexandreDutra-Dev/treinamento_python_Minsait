@@ -35,10 +35,9 @@ def selecionar_opcao_conta_corrente() -> None:
 
 def consultar_saldo_conta_corrente() -> None:
 
-    print("\nSaldo atual: R${:.2f}".format(conta_corrente.get_saldo()))
-    print("Limite disponível: R${:.2f}".format(conta_corrente.get_limite()))
+    print("\nSaldo atual: R${:.2f}".format(conta_corrente._saldo))
     print("Saldo total: R${:.2f}".format(
-        conta_corrente.get_saldo() + conta_corrente.get_limite()))
+        conta_corrente._saldo + conta_corrente.limite))
 
 
 def realizar_saque_conta_corrente() -> None:
