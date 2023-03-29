@@ -15,6 +15,7 @@ conta_corrente.depositar("abc22")
 conta_corrente.sacar(1700)
 conta_corrente.sacar(0)
 conta_corrente.sacar(-500)
+conta_corrente.sacar(5000)
 
 print("--------------------------------------------.\n")
 
