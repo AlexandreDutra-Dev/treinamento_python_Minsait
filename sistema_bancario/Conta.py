@@ -1,3 +1,4 @@
+from abc import ABC, abstractmethod
 class Conta:
     def __init__(self, id_conta: int, saldo: float):
         self._id_conta = id_conta
@@ -14,3 +15,11 @@ class Conta:
     @saldo.setter
     def saldo(self, saldo: float):
         self._saldo = saldo
+
+    @abstractmethod
+    def sacar(self, valor: float):
+        pass
+
+    @abstractmethod
+    def depositar(self, valor: float):
+        pass
