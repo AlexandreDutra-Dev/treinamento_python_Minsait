@@ -4,9 +4,9 @@ Ele atribui valores aleatórios para os atributos dos personagens e monstros
 e chama a função batalha com dois personagens e/ou monstros diferentes da  lista de personagens e monstros."""
 
 import random
-from personagem import Personagem
-from lobo import Lobo
-from goblin import Goblin
+from Personagem import Personagem
+from Lobo import Lobo
+from Goblin import Goblin
 
 # Função para iniciar a batalha entre um personagem e um monstro
 def batalha(personagem, monstro):

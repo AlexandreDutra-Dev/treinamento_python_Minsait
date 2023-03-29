@@ -1,4 +1,4 @@
-from monstro import Monstro
+from Monstro import Monstro
 
 
 class Goblin(Monstro):
