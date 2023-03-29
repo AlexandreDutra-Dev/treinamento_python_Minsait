@@ -59,7 +59,7 @@ class ContaPoupanca(Conta):
         try:
             if valor <= 0:
                 raise ValueError(
-                    "Valor inválido para saque. Digite um valor positivo.\n")
+                    "Valor inválido para saque. Digite acima de R$0,00.\n")
             elif valor > self.saldo:
                 raise ValueError("Saldo insuficiente para saque.\n")
             self.saldo -= valor
@@ -71,7 +71,7 @@ class ContaPoupanca(Conta):
     def depositar(self, valor: float):
         try:
             if not isinstance(valor, (float, int)):
-                raise TypeError(
+                raise ValueError(
                     "Valor inválido para depósito. Digite um número válido.\n")
             if valor <= 0:
                 raise ValueError(
@@ -79,5 +79,5 @@ class ContaPoupanca(Conta):
             self.saldo += valor
             print("Depósito realizado com sucesso. Saldo: R${:.2f}.\n".format(
                 self.saldo))
-        except (TypeError, ValueError) as erro:
+        except ValueError as erro:
             print(erro)
