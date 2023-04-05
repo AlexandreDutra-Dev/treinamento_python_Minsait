@@ -22,13 +22,16 @@ class ContaPoupanca(Conta):
             if valor <= 0:
                 raise ValueError(
                     "Valor inválido para saque. Digite acima de R$0,00.\n")
-            elif valor > self.saldo:
-                raise ValueError("Saldo insuficiente para saque.\n")
+            if not self.tem_saldo_suficiente(valor):
+              raise ValueError("Saldo insuficiente para realizar o saque.\n")
             self.saldo -= valor
             print("Saque realizado com sucesso. Saldo: R${:.2f}.\n".format(
                 self.saldo))
         except ValueError as erro:
             print(erro)
+
+    def tem_saldo_suficiente(self, valor: float) -> bool:
+        return self.saldo >= valor
 
     def depositar(self, valor: float):
         try:
@@ -46,28 +49,26 @@ class ContaPoupanca(Conta):
 
     def verificar_rendimentos(self, frequencia):
       if frequencia == "anual":
-          taxa = self._taxa_de_rendimento
-          divisor = 1
+          self.saldo += self.saldo * self._taxa_de_rendimento
+          print("Rendimento anual: R${:.2f}.\n".format(
+              self.saldo * self._taxa_de_rendimento))
       elif frequencia == "mensal":
-          taxa = self._taxa_de_rendimento / 12
-          divisor = 12
-      elif frequencia == "diaria":
-          taxa = self._taxa_de_rendimento / 365
-          divisor = 365
-      elif frequencia == "por_segundo":
-          taxa = self._taxa_de_rendimento / (365 * 24 * 60 * 60)
-          divisor = 365 * 24 * 60 * 60
-      elif frequencia == "por_minuto":
-          taxa = self._taxa_de_rendimento / (365 * 24 * 60)
-          divisor = 365 * 24 * 60
+          self.saldo += self.saldo * self._taxa_de_rendimento / 12
+          print("Rendimento mensal: R${:.2f}.\n".format(
+              self.saldo * self._taxa_de_rendimento / 12))
+      elif frequencia == "diario":
+          self.saldo += self.saldo * self._taxa_de_rendimento / 365
+          print("Rendimento diário: R${:.2f}.\n".format(
+              self.saldo * self._taxa_de_rendimento / 365))
       elif frequencia == "por_hora":
-          taxa = self._taxa_de_rendimento / (365 * 24)
-          divisor = 365 * 24
-      else:
-          print("Frequência inválida")
-          return 0
-
-      rendimento = self.saldo * taxa / divisor
-      print("Rendimento {}: R${:.2f}".format(
-          frequencia.capitalize(), rendimento))
-      return rendimento
+          self.saldo += self.saldo * self._taxa_de_rendimento / 8760
+          print("Rendimento por hora: R${:.2f}.\n".format(
+              self.saldo * self._taxa_de_rendimento / 8760))
+      elif frequencia == "por_minuto":
+          self.saldo += self.saldo * self._taxa_de_rendimento / 525600
+          print("Rendimento por minuto: R${:.2f}.\n".format(
+              self.saldo * self._taxa_de_rendimento / 525600))
+      elif frequencia == "por_segundo":
+          self.saldo += self.saldo * self._taxa_de_rendimento / 31536000
+          print("Rendimento por segundo: R${:.2f}.\n".format(
+              self.saldo * self._taxa_de_rendimento / 31536000))

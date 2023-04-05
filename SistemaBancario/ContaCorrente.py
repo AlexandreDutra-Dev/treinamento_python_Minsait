@@ -17,27 +17,28 @@ class ContaCorrente(Conta):
         self._limite = limite
 
     def sacar(self, valor: float):
-      if not isinstance(valor, (float, int)):
-          print("Valor inválido para saque. Digite um número válido.\n")
-          return
-      if valor <= 0:
-          print("Valor inválido para saque. Digite um valor acima de R$0,00.\n")
-          return
+      try:
+          if not isinstance(valor, (float, int)):
+              raise ValueError(
+                  "Valor inválido para saque. Digite um número válido.\n")
+          if valor <= 0:
+              raise ValueError(
+                  "Valor inválido para saque. Digite um valor acima de R$0,00.\n")
+          if not self.tem_saldo_suficiente(valor):
+              raise ValueError("Saldo insuficiente para realizar o saque.\n")
 
-      if not self.tem_saldo_suficiente(valor):
-          print("Saldo insuficiente para realizar o saque.\n")
-          return
+          if self.saldo >= valor:
+              self.saldo -= valor
+          else:
+              self.sacar_do_limite(valor - self.saldo)
+          print("Saque realizado com sucesso. Saldo: R${:.2f} / Limite: R${:.2f}.\n".format(
+              self.saldo, self._limite))
+          if self.__limite_utilizado > 0:
+              print("Limite utilizado: R${:.2f}.\n".format(
+                  self.__limite_utilizado))
+      except ValueError as erro:
+          print(erro)
 
-      if self.saldo >= valor:
-          self.saldo -= valor
-      else:
-          self.sacar_do_limite(valor - self.saldo)
-
-      print("Saque realizado com sucesso. Saldo: R${:.2f} / Limite: R${:.2f}.\n".format(
-          self.saldo, self._limite))
-      if self.__limite_utilizado > 0:
-          print("Limite utilizado: R${:.2f}.\n".format(
-              self.__limite_utilizado))
 
     def tem_saldo_suficiente(self, valor: float) -> bool:
         saldo_disponivel = self.saldo + self._limite
