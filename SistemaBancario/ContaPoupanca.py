@@ -18,14 +18,14 @@ class ContaPoupanca(Conta):
         try:
             if not isinstance(valor, (float, int)):
                 raise ValueError(
-                    "Valor inválido para saque. Digite um número válido.\n")
+                    "Valor inválido para saque. Digite um número válido.")
             if valor <= 0:
                 raise ValueError(
-                    "Valor inválido para saque. Digite acima de R$0,00.\n")
+                    "Valor inválido para saque. Digite acima de R$0,00.")
             if not self.tem_saldo_suficiente(valor):
-              raise ValueError("Saldo insuficiente para realizar o saque.\n")
+              raise ValueError("Saldo insuficiente para realizar o saque.")
             self.saldo -= valor
-            print("Saque realizado com sucesso. Saldo: R${:.2f}.\n".format(
+            print("Saque realizado com sucesso. Saldo: R${:.2f}".format(
                 self.saldo))
         except ValueError as erro:
             print(erro)
@@ -37,12 +37,12 @@ class ContaPoupanca(Conta):
         try:
             if not isinstance(valor, (float, int)):
                 raise ValueError(
-                    "Valor inválido para depósito. Digite um número válido.\n")
+                    "Valor inválido para depósito. Digite um número válido.")
             if valor <= 0:
                 raise ValueError(
-                    "Valor inválido para depósito. Digite um a valor acima de R$0,00.\n")
+                    "Valor inválido para depósito. Digite um a valor acima de R$0,00.")
             self.saldo += valor
-            print("Depósito realizado com sucesso. Saldo: R${:.2f}.\n".format(
+            print("Depósito realizado com sucesso. Saldo: R${:.2f}".format(
                 self.saldo))
         except ValueError as erro:
             print(erro)
@@ -50,25 +50,25 @@ class ContaPoupanca(Conta):
     def verificar_rendimentos(self, frequencia):
       if frequencia == "anual":
           self.saldo += self.saldo * self._taxa_de_rendimento
-          print("Rendimento anual: R${:.2f}.\n".format(
+          print("Rendimento anual: R${:.2f}".format(
               self.saldo * self._taxa_de_rendimento))
       elif frequencia == "mensal":
           self.saldo += self.saldo * self._taxa_de_rendimento / 12
-          print("Rendimento mensal: R${:.2f}.\n".format(
+          print("Rendimento mensal: R${:.2f}".format(
               self.saldo * self._taxa_de_rendimento / 12))
       elif frequencia == "diario":
           self.saldo += self.saldo * self._taxa_de_rendimento / 365
-          print("Rendimento diário: R${:.2f}.\n".format(
+          print("Rendimento diário: R${:.2f}".format(
               self.saldo * self._taxa_de_rendimento / 365))
       elif frequencia == "por_hora":
           self.saldo += self.saldo * self._taxa_de_rendimento / 8760
-          print("Rendimento por hora: R${:.2f}.\n".format(
+          print("Rendimento por hora: R${:.2f}".format(
               self.saldo * self._taxa_de_rendimento / 8760))
       elif frequencia == "por_minuto":
           self.saldo += self.saldo * self._taxa_de_rendimento / 525600
-          print("Rendimento por minuto: R${:.2f}.\n".format(
+          print("Rendimento por minuto: R${:.2f}".format(
               self.saldo * self._taxa_de_rendimento / 525600))
       elif frequencia == "por_segundo":
           self.saldo += self.saldo * self._taxa_de_rendimento / 31536000
-          print("Rendimento por segundo: R${:.2f}.\n".format(
+          print("Rendimento por segundo: R${:.2f}".format(
               self.saldo * self._taxa_de_rendimento / 31536000))
